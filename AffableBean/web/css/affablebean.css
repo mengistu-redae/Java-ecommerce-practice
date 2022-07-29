@@ -1,0 +1,510 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jul 21, 2022, 2:55:49 PM
+    Author     : Silondis
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 850px; /*to create space for each area*/
+    text-align: center;
+    margin: 20px auto; /* to horizontally center the four areas in the page 
+                         - 20px applies to the top and bottom; 
+                         - auto creates equal spacing to the left and right */
+
+}
+
+#main {
+    /* background-color: #eee; */
+    background-color: #f7f7e9;
+}
+
+#header {
+    height: 250px; /*to create space for the area*/
+    /*background-color: #aaa; */
+}
+
+#logo {
+    height: 155px;
+    width: 155px;
+    float: left;
+    margin-left: 30px;
+    margin-top: -20px;
+}
+
+#logoText {
+    float: left;
+    margin: 20px 0 0 70px; /* order of values is: top-right-bottom-left */
+    font-family: 'American Typewriter', Courier, monospace; /* font styles apply to text within alt tags */
+    font-size: 50px;
+    color: #333;
+}
+
+#widgetBar {
+    height: 50px;
+    width: 850px;
+    float: right;
+    /*background-color: #ccc; */
+}
+
+.headerWidget {
+    width: 194px;
+    margin: 20px 2px;
+    font-size: small;
+    float: right;
+    line-height: 25px;
+    /*background-color: #aaa; */
+}
+
+#indexLeftColumn {
+    height: 400px; /*to create space for the area*/
+    width: 350px; /*to create space for the area*/
+    float: left; /* to horizontally center the two columns in the page
+                    Normally div elements will be displayed on top of each other. 
+                    However, if we use float: left we can let elements float next to each other. */
+    /*background-color: #ccc; */
+}
+
+#indexRightColumn {
+    height: 400px; /*to create space for the area*/
+    width: 500px; /*to create space for the area*/
+    float: left; /* to horizontally center the two columns in the page
+                    Normally div elements will be displayed on top of each other. 
+                    However, if we use float: left we can let elements float next to each other. */
+    /*background-color: #eee;*/
+}
+
+#welcomeText {
+    margin: 25px 10px 25px 25px;
+    text-align: left;
+}
+
+.categoryBox {
+    height: 167px;
+    width: 212px; /*212px;*/
+    margin: 21px 14px 6px; /* If the margin property has three values:
+                              margin: 21px 18px 6px;
+                                top margin is 21px
+                                right and left margins are 18px
+                                bottom margin is 6px
+    */
+    float: inherit; /* inherits float behavior of parent element i.e. that of RightColumn which is left floating */
+    border: solid 1px;
+    background-color: #ccc;
+}
+
+.categoryLabelText {
+    line-height: 150%;
+    font-size: x-large;
+}
+
+#footer {
+    height: 60px; /*to create space for the area*/
+    width: 350px; /*to create space for the area*/
+    clear: left; /* its top border displays after the bottom borders of any 
+                    left-floating areas above it (i.e., the left and right columns)
+                    
+                    - When we use the float property, and we want the next element below (not on right or left), 
+                      we will have to use the clear property. B/c the clear property specifies what should happen with 
+                      the element that is next to a floating element. 
+    */
+    
+    font-size: 12px;
+    /*background-color: #aaa;*/
+}
+
+hr {
+    border: 0;
+    background-color: #333;
+    height: 1px;
+    margin: 0 25px;
+    width: 300px;
+}
+
+/*******************************************
+        Stylesheet for category page
+ *******************************************/
+#categoryLeftColumn {
+    height: 400px; /*to create space for the area*/
+    width: 280px; /*to create space for the area*/
+    margin-bottom: 2px;
+    float: left; /* to horizontally center the two columns in the page
+                    Normally div elements will be displayed on top of each other. 
+                    However, if we use float: left we can let elements float next to each other. */
+    
+    /*background-color: #ccc; */
+}
+
+.menu {
+    width: 150px;
+    /*height: 50px;*/
+    margin: 14px auto 14px;
+    display: flex; /* sets the div a flexBox */
+    justify-content: center; /*Sets the flexBox elements(children) horizontally centered */
+    line-height: 50px; /* sets content vertical center in a height of 50px */
+    font-weight: bolder;
+    background-color: #d3ede8; /*aquamarine;*/ 
+}
+
+.menu:first-of-type{
+    margin-top: 40px;
+}
+
+#categoryRightColumn {
+    height: 400px; /*to create space for the area*/
+    width: 570px; /*to create space for the area*/
+    float: left; /* to horizontally center the two columns in the page
+                    Normally div elements will be displayed on top of each other. 
+                    However, if we use float: left we can let elements float next to each other. */
+    
+    /*background-color: #eee; */
+}
+
+#selectedCategory {
+    width: 250px;
+    margin: -40px auto 0px; /* auto used to horizontally center the element within its container */
+    display: flex;
+    justify-content: center; /*Sets the flexBox elements(children) horizontally centered */
+    line-height: 10px; /* sets content vertical center in a height of 10px */
+    background-color: #f5eabe;
+}
+
+#items {
+    margin-right: 14px;
+    display: flex;
+    flex-direction: column;
+    border: #f5eabe 1px solid;
+}
+
+#items > div:nth-child(odd) {
+    background-color: #edf8f7;
+}
+
+#items > div:nth-child(even) {
+    background-color: white;
+}
+
+.item {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    line-height: 33.4px; /* sets content vertical center in a height of 10px */
+}
+
+.item > div {
+    margin: 10px;
+}
+
+
+.productImage {
+    width: 125px;
+}
+
+.productNameDescription {
+    display: flex;
+    flex-direction: column;
+}
+
+.productNameDescription {
+    width: 260px;
+}
+
+.price {
+    width: 100px;
+}
+
+.purchaseButton {
+    width: 75px;
+}
+
+.purchaseButton > input {
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+
+/*******************************************
+        Stylesheet for cart page
+ *******************************************/
+#cartMainContent {
+    height: 400px; /*to create space for the area*/
+    margin: 15px 25px 0px;
+    text-align: left;
+}
+
+#cartSummary {
+    margin-bottom: 10px;
+}
+
+#cartActions {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /*Sets the flexBox elements(children) horizontally centered */
+    line-height: 33.4px; /* sets content vertical center in a height of 10px */
+}
+
+#cartActions > div {
+    margin: 0px 30px 0px;
+    padding: 0px 5px 0px;
+    background-color: #f5eabe;
+}
+
+#subtotal {
+    width: 300px;
+    margin-top: 30px;
+    margin-left: 350px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#cartItems {
+    margin: 0px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    border: #f5eabe 1px solid;
+    text-align: center;
+}
+
+#cartItems > div:nth-child(odd) {
+    background-color: #edf8f7;
+}
+
+#cartItems > div:nth-child(even) {
+    background-color: white;
+}
+
+.cartItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    line-height: 33.4px; /* sets content vertical center in a height of 10px */
+}
+
+#cartItemsHead {
+    margin: 10px 10px 0px;
+    display: flex;
+    flex-direction: row;
+    line-height: 30px; /* sets content vertical center in a height of 10px */
+    font-weight: bold;
+    text-align: center;
+    background-color: #c3e3e0;
+}
+
+.cartProductImage {
+    width: 200px;
+}
+
+.productName {
+    width: 200px;
+}
+
+.cartPrice {
+    width: 200px;
+}
+
+.quantity {
+    width: 200px;
+}
+
+.updateButton {
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+/*******************************************
+        Stylesheet for checkout page
+ *******************************************/
+
+#checkoutTopDiv {
+    margin: 10px 30px 20px;
+    text-align: left;
+}
+
+#checkoutBottomDiv {
+    margin-top: 5px;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+#customerInfo {
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 400px;
+    float:left;
+    display: flex;
+    flex-direction: column;
+    line-height: 30px;
+    text-align: right;
+    background-color: #f5eabe;
+}
+
+#submitPurchase, #pragueOption {
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+#billingInfo {
+    margin-left: 40px;
+    width: 300px;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#deliveryInfo {
+
+}
+
+#chargeSummary {
+    width: 250px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    line-height: 30px;
+    background-color: #c3e3e0;
+}
+
+#chargeSummaryHr > hr{
+    margin: auto;
+    width: 210px;
+}
+
+#checkoutSubtotal, #deliverySurcharge, #checkoutTotal {
+    display: flex;
+    flex-direction: row;
+}
+
+#subtotalLabel, #deliveryLabel, #totalLabel {
+    margin-right: 0px;
+    width: 160px;
+    text-align: right;
+}
+
+#subtotalCharge, #deliveryCharge, #totalCharge {
+    margin-right: 0px;
+    width: 70px;
+    text-align: right;
+    font-weight: bolder;
+}
+
+
+/*******************************************
+        Stylesheet for Confirmation page
+ *******************************************/
+#confirmationTopDiv {
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 630px;
+    text-align: left;
+    border: #f5eabe 1px solid;
+    border-radius: 5px;
+    background-color: #f5eabe;
+}
+
+#confirmationBottomDiv {
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-bottom: 25px;
+    width: 730px;
+    display: flex;
+    flex-direction: row;
+    line-height: 30px;
+}
+
+#orderSummary {
+    width: 400px;
+    border: #f5eabe 1px solid;
+    background-color: #edf8f7;
+}
+
+#orderSummary > hr {
+    width: 350px;
+    margin: auto;
+}
+
+#orderSummaryHeadingDiv, #deliveryAddressHeadingDiv {
+    padding-left: 15px;
+    text-align: left;
+    font-weight: bolder;
+    background-color: #b0e0e6;
+}
+
+#itemPrices > div:nth-child(odd) {
+    background-color: #edf8f7;
+}
+
+#itemPrices > div:nth-child(even) {
+    background-color: white;
+}
+
+.orderSummaryRow {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.orderSummaryRow > div:nth-child(1) {
+    width: 190px;
+    padding-left: 25px;
+    text-align: left;
+}
+
+.orderSummaryRow > div:nth-child(2) {
+    width: 100px;
+}
+
+.orderSummaryRow > div:nth-child(3) {
+    width: 100px;
+}
+
+.payments {
+    display: flex;
+    flex-direction: row;
+    background-color: #edf8f7;
+}
+
+.payments > div:first-child {
+    width: 300px;
+    text-align: right;
+    font-weight: bolder;
+}
+
+.payments > div:nth-child(2) {
+    width: 100px;
+}
+
+#dateProcessed {
+    padding-left: 25px;
+    text-align: left;
+}
+
+#deliveryAddress {
+    width: 300px;
+    height: 160px;
+    margin-left: 30px;
+    text-align: left;
+    border: #f5eabe 1px solid;
+    background-color: #edf8f7;
+}
+
+.address {
+    padding-top: 5px;
+    padding-left: 25px;
+    line-height: 20px;
+}
+
+#deliveryAddress > hr {
+    width: 230px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 25px;
+}
